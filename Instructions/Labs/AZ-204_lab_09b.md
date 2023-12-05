@@ -4,13 +4,21 @@ lab:
     az204Module: 'Learning Path 09: Develop event-based solutions'
 ---
 
-# Lab 09: Publish and subscribe to Event Grid events
+# Lab 09: Publish and subscribe to Event Grid events (Standard Path)
 
 ## Microsoft Azure user interface
 
 Given the dynamic nature of Microsoft cloud tools, you might experience Azure UI changes that occur after the development of this training content. As a result, the lab instructions and lab steps might not align correctly.
 
 Microsoft updates this training course when the community alerts us to needed changes. However, cloud updates occur frequently, so you might encounter UI changes before this training content updates. **If this occurs, adapt to the changes, and then work through them in the labs as needed.**
+
+## Multi Path Labs
+
+This lab has been structured to give learners a choice in their lab experience. There are three approaches to progress through this lab
+
+- Path 1 (Low-Code - quick or non-dev approach)
+- Path 2 (Standard - typical lab implementation - recommended)
+- Path 3 (Advanced - limited code given)
 
 ## Instructions
 

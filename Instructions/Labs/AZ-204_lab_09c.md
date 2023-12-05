@@ -4,13 +4,21 @@ lab:
     az204Module: 'Learning Path 09: Develop event-based solutions'
 ---
 
-# Lab 09: Publish and subscribe to Event Grid events
+# Lab 09: Publish and subscribe to Event Grid events (Advanced Path)
 
 ## Microsoft Azure user interface
 
 Given the dynamic nature of Microsoft cloud tools, you might experience Azure UI changes that occur after the development of this training content. As a result, the lab instructions and lab steps might not align correctly.
 
 Microsoft updates this training course when the community alerts us to needed changes. However, cloud updates occur frequently, so you might encounter UI changes before this training content updates. **If this occurs, adapt to the changes, and then work through them in the labs as needed.**
+
+## Multi Path Labs
+
+This lab has been structured to give learners a choice in their lab experience. There are three approaches to progress through this lab
+
+- Path 1 (Low-Code - quick or non-dev approach)
+- Path 2 (Standard - typical lab implementation - recommended)
+- Path 3 (Advanced - limited code given)
 
 ## Instructions
 
@@ -262,98 +270,21 @@ In this exercise, you created a new subscription, validated its registration, an
 
 1. Select **Kill Terminal** or the **Recycle Bin** icon to close the currently open terminal and any associated processes.
 
-#### Task 2: Modify the Program class to connect to Event Grid
+#### Task 2: Replace Program class with skeleton code (advanced)
 
-1. On the **Explorer** pane of the **Visual Studio Code** window, open the **Program.cs** file.
+1. On the **File** menu, select **Open File**.
 
-1. On the code editor tab for the **Program.cs** file, delete all the code in the existing file.
-  
-1. Add the following of code:
+1. Browse to **Allfiles (F):\\Allfiles\\Labs\\09\\Advanced\\Program.txt** and click open.
 
-    ```csharp
-    using Azure;
-    using Azure.Messaging.EventGrid;
-    using System;
-    using System.Threading.Tasks;    
-    public class Program
-    {
-        private const string topicEndpoint = "<topic-endpoint>";
-        /* Update the topicEndpoint string constant by setting its value to the Topic
-           Endpoint of the Event Grid topic that you recorded previously in this lab. */
-        private const string topicKey = "<topic-key>";   
-        /* Update the topicKey string constant by setting its value to the Key of the Event Grid topic that you recorded previously in this lab. */     
-        public static async Task Main(string[] args)
-        {
-            //Add Main code here
-        }
-    }
-    ```
+1. Copy the entire contents of **Program.txt** and replace Program the content of **Program.cs**.
 
-#### Task 3: Publish new events
+#### Task 3: Publish new events (advanced)
 
-1. Add the following code in the **Main** method of **Program.cs** file:
-   
-    ```csharp
-    public static async Task Main(string[] args)
-    {   
-        /* To create a new variable named "endpoint" of type "Uri", 
-           using the "topicEndpoint" string constant as a constructor parameter */
-        Uri endpoint = new Uri(topicEndpoint);
+1. Replace the topicEndpoint and topicKey placeholders with values obtained eariler in the exercise
 
-        /* To create a new variable named "credential" of type "AzureKeyCredential",
-           use the "topicKey" string constant as a constructor parameter. */
-        AzureKeyCredential credential = new AzureKeyCredential(topicKey);
+1. Write the appropriate C# code to send 2 messages to the Event grid created earlier. 
 
-        /* To create a new variable named "client" of type "EventGridPublisherClient", 
-           using the "endpoint" and "credential" variables as constructor parameters */
-        EventGridPublisherClient client = new EventGridPublisherClient(endpoint, credential);
-
-        /* To create a new variable named "firstEvent" of type "EventGridEvent",
-           and populate that variable with sample data */        
-        EventGridEvent firstEvent = new EventGridEvent(
-            subject: $"New Employee: Alba Sutton",
-            eventType: "Employees.Registration.New",
-            dataVersion: "1.0",
-            data: new
-            {
-                FullName = "Alba Sutton",
-                Address = "4567 Pine Avenue, Edison, WA 97202"
-            }
-        );
-
-        /* To create a new variable named "secondEvent" of type "EventGridEvent",
-           and populate that variable with sample data */
-        EventGridEvent secondEvent = new EventGridEvent(
-            subject: $"New Employee: Alexandre Doyon",
-            eventType: "Employees.Registration.New",
-            dataVersion: "1.0",
-            data: new
-            {
-                FullName = "Alexandre Doyon",
-                Address = "456 College Street, Bow, WA 98107"
-            }
-        );
-
-        /* To asynchronously invoke the "EventGridPublisherClient.SendEventAsync"
-           method using the "firstEvent" variable as a parameter */
-        await client.SendEventAsync(firstEvent);
-        Console.WriteLine("First event published");
-
-        /* To asynchronously invoke the "EventGridPublisherClient.SendEventAsync"
-           method using the "secondEvent" variable as a parameter */
-        await client.SendEventAsync(secondEvent);
-        Console.WriteLine("Second event published");
-    }
-    ```
-    > **Note**: To know more about **[AzureKeyCredential](https://docs.microsoft.com/dotnet/api/azure.azurekeycredential)**
-  
-    > **Note**: To know more about Event Grid, click the following links: 
-    - **[EventGridPublisherClient](https://learn.microsoft.com/dotnet/api/azure.messaging.eventgrid.eventgridpublisherclient)**
-    
-    - **[EventGridEvent](https://learn.microsoft.com/dotnet/api/azure.messaging.eventgrid.eventgridevent)**
-
-    - **[EventGridPublisherClient.SendEventAsync](https://learn.microsoft.com/dotnet/api/azure.messaging.eventgrid.eventgridpublisherclient.sendeventasync)**
-
+    > **Note**: Tools such as GitHub Copilot and Bing Chat can be used to help generate code
 
 1. Save the **Program.cs** file.
 
