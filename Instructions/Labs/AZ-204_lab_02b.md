@@ -4,13 +4,21 @@ lab:
     az204Module: 'Learning Path 02: Implement Azure Functions'
 ---
 
-# Lab 02: Implement task processing logic by using Azure Functions
+# Lab 02: Implement task processing logic by using Azure Functions (Standard Path)
 
 ## Microsoft Azure user interface
 
 Given the dynamic nature of Microsoft cloud tools, you might experience Azure UI changes that occur after the development of this training content. As a result, the lab instructions and lab steps might not align correctly.
 
 Microsoft updates this training course when the community alerts us to needed changes. However, cloud updates occur frequently, so you might encounter UI changes before this training content updates. **If this occurs, adapt to the changes, and then work through them in the labs as needed.**
+
+## Multi Path Labs
+
+This lab has been structured to give learners a choice in their lab experience. There are three approaches to progress through this lab
+
+- Path 1 (Low-Code - quick or non-dev approach)
+- Path 2 (Standard - typical lab implementation - recommended)
+- Path 3 (Advanced - limited code given)
 
 ## Instructions
 
@@ -144,7 +152,7 @@ In this exercise, you created all the resources that you'll use in this lab.
 
 ### Exercise 2: Configure a local Azure Functions project
 
-#### Task 1: Initialize a function project
+#### Task 1: Initialize a function project (Standard Path)
 
 1. On the taskbar, select the **Windows Terminal** icon.
 
@@ -200,7 +208,7 @@ In this exercise, you created all the resources that you'll use in this lab.
 
 In this exercise, you created a local project that you'll use for Azure Functions development.
 
-### Exercise 3: Create a function that's triggered by an HTTP request
+### Exercise 3: Create a function that's triggered by an HTTP request (Standard Path)
 
 #### Task 1: Create an HTTP-triggered function
 
@@ -316,7 +324,7 @@ In this exercise, you created a local project that you'll use for Azure Function
 
 In this exercise, you created a basic function that echoes the content sent through an HTTP POST request.
 
-### Exercise 4: Create a function that triggers on a schedule
+### Exercise 4: Create a function that triggers on a schedule (Standard Path)
 
 #### Task 1: Create a schedule-triggered function
 
@@ -411,7 +419,7 @@ In this exercise, you created a basic function that echoes the content sent thro
 
 In this exercise, you created a function that runs automatically based on a fixed schedule.
 
-### Exercise 5: Create a function that integrates with other services
+### Exercise 5: Create a function that integrates with other services (Standard Path)
 
 #### Task 1: Upload sample content to Azure Blob Storage
 
@@ -584,7 +592,7 @@ In this exercise, you created a function that runs automatically based on a fixe
 
 In this exercise, you created a function that returns the content of a JSON file in Storage.
 
-### Exercise 6: Deploy a local function project to an Azure Functions app
+### Exercise 6: Deploy a local function project to an Azure Functions app (Standard Path)
 
 #### Task 1: Deploy using the Azure Functions Core Tools
 
