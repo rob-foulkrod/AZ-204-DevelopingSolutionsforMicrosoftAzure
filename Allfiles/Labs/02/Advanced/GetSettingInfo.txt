@@ -1,0 +1,37 @@
+using System.Net;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Http;
+using Microsoft.Extensions.Logging;
+
+namespace func
+{
+    public class GetSettingInfo
+    {
+        private readonly ILogger _logger;
+
+        public GetSettingInfo(ILoggerFactory loggerFactory)
+        {
+            _logger = loggerFactory.CreateLogger<GetSettingInfo>();
+        }
+
+        // Add Attributes to accomplish the following:
+        // Indicates that this method is an Azure Function named "GetSettingInfo".
+        // Indicates that this function is triggered by an HTTP request.
+        // The function can be triggered by either a GET or POST request.
+        // The AuthorizationLevel.Function means that the function requires a function key to invoke.
+        // Indicates that the function reads data from a blob in Azure Storage.
+        // The blob is located at "content/settings.json" in the storage account specified by the "AzureWebJobsStorage" connection string.
+        public HttpResponseData Run(HttpRequestData req, string blobContent)
+        {
+            // Log an informational message indicating that the function has been triggered.
+            // Log the content of the blob.
+
+            // Create a response with a status code of 200 (OK).
+            // Add a header to the response indicating that the content type is plain text.
+            // Write the content of the blob to the response.
+
+            // Return the response.
+            return response;
+        }
+    }
+}
