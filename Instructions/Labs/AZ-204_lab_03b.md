@@ -4,7 +4,7 @@ lab:
     az204Module: 'Learning Path 03: Develop solutions that use blob storage'
 ---
 
-# Lab 03: Retrieve Azure Storage resources and metadata by using the Azure Storage SDK for .NET
+# Lab 03: Retrieve Azure Storage resources and metadata by using the Azure Storage SDK for .NET(Standard Path)
 
 ## Microsoft Azure user interface
 
