@@ -13,10 +13,19 @@ namespace func
             _logger = loggerFactory.CreateLogger<Recurring>();
         }
 
+        // This attribute indicates that this method is an Azure Function named "Recurring".
         [Function("Recurring")]
-        public void Run([TimerTrigger("0 */2 * * * *")] MyInfo myTimer)
+        public void Run(
+            // This attribute indicates that this function is triggered by a timer.
+            // The function is triggered every 2 minutes 
+            // (as indicated by the cron expression "0 */2 * * * *") 
+            // (seconds, minutes, hours, days, months, days of the week).
+            [TimerTrigger("0 */2 * * * *")] MyInfo myTimer)
         {
+            // Log an informational message indicating that the function has been triggered.
+            // Include the current date and time in the log message.
             _logger.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+            // Log an informational message indicating the next scheduled trigger time for the function.
             _logger.LogInformation($"Next timer schedule at: {myTimer.ScheduleStatus.Next}");
         }
     }
