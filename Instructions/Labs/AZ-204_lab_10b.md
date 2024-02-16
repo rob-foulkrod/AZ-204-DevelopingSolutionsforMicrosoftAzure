@@ -4,13 +4,21 @@ lab:
     az204Module: 'Learning Path 10: Develop message-based solutions'
 ---
 
-# Lab 10: Asynchronously process messages by using Azure Service Bus Queues
+# Lab 10: Asynchronously process messages by using Azure Service Bus Queues (Standard Path)
 
 ## Microsoft Azure user interface
 
 Given the dynamic nature of Microsoft cloud tools, you might experience Azure UI changes that occur after the development of this training content. As a result, the lab instructions and lab steps might not align correctly.
 
 Microsoft updates this training course when the community alerts us to needed changes. However, cloud updates occur frequently, so you might encounter UI changes before this training content updates. **If this occurs, adapt to the changes, and then work through them in the labs as needed.**
+
+## Multi Path Labs
+
+This lab has been structured to give learners a choice in their lab experience. There are three approaches to progress through this lab. The default experience is the standard path.
+
+- Path 1 (Low-Code - quick or non-dev approach)
+- Path 2 (Standard - typical lab implementation - recommended)
+- Path 3 (Advanced - limited code given)
 
 ## Instructions
 
@@ -99,7 +107,7 @@ In this lab, you will create a proof of concept for this scenario by employing a
 
 In this exercise, you created an Azure **Service Bus** namespace and a **Service Bus** queue that you'll use through the remainder of the lab.
 
-### Exercise 2: Create a .NET Core project to publish messages to a Service Bus queue
+### Exercise 2: Create a .NET Core project to publish messages to a Service Bus queue (Standard Path)
 
 #### Task 1: Create a .NET Core project
 
@@ -252,7 +260,7 @@ In this exercise, you created an Azure **Service Bus** namespace and a **Service
 
 In this exercise, you configured your .NET project that published messages into an Azure Service Bus queue.
 
-### Exercise 3: Create a .NET Core project to read messages from a Service Bus queue
+### Exercise 3: Create a .NET Core project to read messages from a Service Bus queue (Standard Path)
 
 #### Task 1: Create a .NET project
 
