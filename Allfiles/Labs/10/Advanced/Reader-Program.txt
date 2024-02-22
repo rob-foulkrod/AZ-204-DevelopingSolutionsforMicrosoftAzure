@@ -1,0 +1,52 @@
+﻿using System;
+using System.Threading.Tasks;
+using Azure.Messaging.ServiceBus;
+namespace MessageReader
+{
+    class Program
+    {   
+        /* The `<serviceBus-connection-string>` placeholder represents
+           the connection string to the target Azure Service Bus namespace */
+        static string serviceBusConnectionString = "<serviceBus-connection-string>";
+        
+        /* To create a string constant named "queueName" with a value
+           of "messagequeue", matching the name of the Service Bus queue.*/
+        static string queueName = "messagequeue";
+        static ServiceBusClient client = default;
+
+        /* Create a ServiceBusProcessor that will be used to process messages from the queue */
+        static ServiceBusProcessor processor = default;
+
+        /* Create a static async task, "MessageHandler" function that processes incoming messages from a queue, 
+           displays their body content to the console, and deletes them from the queue after processing. */
+
+
+
+        /* Create a static async task, "ErrorHandler" function that 
+        manages any exceptions encountered during message processing. */
+
+
+        static async Task Main()
+        {   
+            /* Initialize the ServiceBusClient to
+               provide connectivity to the Service Bus namespace */
+
+
+            /* Initialize the ServiceBusProcessor to be an event-driven message processor */
+
+
+            /* In the try/finally block, Set up message and error handlers for a processor, 
+               start the processor to handle incoming messages, 
+               wait for a user input to stop processing, and then stop the processor.
+            */
+            try
+            {   
+
+            }
+            finally
+            {
+                /* dispose of the processor and client objects */
+            }
+        }
+    }
+}
