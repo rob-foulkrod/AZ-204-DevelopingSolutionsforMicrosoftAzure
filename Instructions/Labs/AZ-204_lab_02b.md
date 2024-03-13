@@ -534,7 +534,6 @@ In this exercise, you created a function that runs automatically based on a fixe
 
 1. Select **Save** to save your changes to the **GetSettingInfo.cs** file.
 
-
 #### Task 5: Test the function by using curl
 
 1. On the taskbar, select the **Terminal** icon.

@@ -26,7 +26,7 @@ This lab has been structured to give learners a choice in their lab experience. 
 
 #### Sign in to the lab environment
 
-Sign in to your Windows 10 virtual machine (VM) by using the following credentials:
+Sign in to your Windows 11 virtual machine (VM) by using the following credentials:
 
 - Username: `Admin`
 - Password: `Pa55w.rd`
@@ -35,11 +35,11 @@ Sign in to your Windows 10 virtual machine (VM) by using the following credentia
 
 #### Review the installed applications
 
-Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for the applications that you'll use in this lab, including:
+Find the taskbar on your Windows 11 desktop. The taskbar contains the icons for the applications that you'll use in this lab, including:
 
 - Microsoft Edge
 - File Explorer
-- Windows Terminal
+- Terminal
 - Visual Studio Code
 
 ## Lab Scenario
@@ -100,9 +100,9 @@ Finally, you will demonstrate how an Azure function can connect to other Azure r
 
 1. On the **Access keys** blade, select **Show keys**.
 
-1. Review any one of the keys, and then copy the value of either of the **Connection string** boxes to the clipboard.
+1. On the **Access keys** blade, review any one of the **Connection string**s (using **Show** button), and then record the value of either **Connection string** boxes in Notepad. The **Key**s are platform managed encryption keys and are **not** used for this lab.
 
-     > **Note**: It doesn't matter which connection string you choose. They are interchangeable.
+   > **Note**: It doesn't matter which connection string you choose. They are interchangeable.
 
 1. Open Notepad, and then paste the copied connection string value to Notepad. You'll use this value later in this lab.
 
@@ -125,7 +125,7 @@ Finally, you will demonstrate how an Azure function can connect to other Azure r
     | **Function App name** text box | Enter **funclogic**_[yourname]_ |
     | **Publish** section | Select **Code** |
     | **Runtime stack** drop-down list | Select **.NET** |
-    | **Version** drop-down list | Select **8 (LTS) Isolated (Preview)** |
+    | **Version** drop-down list | Select **8 (LTS),  isolated worker model ** |
     | **Region** drop-down list | Select the **East US** region |
     | **Operating System** option | Select **Linux** |
     | **Plan type** drop-down list | Select **Consumption (Serverless)** |
@@ -156,7 +156,7 @@ In this exercise, you created all the resources that you'll use in this lab.
 
 1. On the taskbar, select the **Visual Studio Code** icon.
 
-1. Click the File Menu and click **Open Folder**. Navigate and open **Allfiles (F):\\Allfiles\\Labs\\02\\Solution\\func** empty directory:
+1. Click the File Menu and click **Open Folder**. Navigate and open **Allfiles (F):\\Allfiles\\Labs\\02\\Solution\\func** directory:
 
     > **Note**: If you are presented with a **Do you trust the authors of the files in the folder**, click Yes.
 
@@ -174,11 +174,11 @@ In this exercise, you created all the resources that you'll use in this lab.
 
 #### Task 3: Build and validate a project
 
-1. On the taskbar, select the **Windows Terminal** icon.
-1. Run the following command to change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\02\\Starter\\func** directory:
+1. On the taskbar, select the **Terminal** icon.
+1. Run the following command to change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\02\\Solution\\func** directory:
 
     ```powershell
-    cd F:\Allfiles\Labs\02\Starter\func
+    cd F:\Allfiles\Labs\02\Solution\func
     ```
 
 1. Run the following command to **build** the .NET project:
@@ -202,13 +202,13 @@ In this exercise, you created a local project that you'll use for Azure Function
 1. In the File Explorer, Open the **Echo.cs** file.
 1. Read thru the code and comments. Make note of any questions you have about the code.
 
-#### Task 3: Test the HTTP-triggered function by using httprepl
+#### Task 3: Test the HTTP-triggered function by using curl
 
-1. On the taskbar, select the **Windows Terminal** icon.
-1. Run the following command to change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\02\\Starter\\func** directory:
+1. On the taskbar, select the **Terminal** icon.
+1. Run the following command to change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\02\\Solution\\func** directory:
 
     ```powershell
-    cd F:\Allfiles\Labs\02\Starter\func
+    cd F:\Allfiles\Labs\02\Solution\func
     ```
 
 1. Run the following command to run the function app project:
@@ -219,7 +219,7 @@ In this exercise, you created a local project that you'll use for Azure Function
 
     > **Note**: You can review the documentation to [start the function app project locally](https://docs.microsoft.com/azure/azure-functions/functions-develop-local) using the **Azure Functions Core Tools**.
     
-1. On the taskbar, select the **Windows Terminal** icon again to open a new instance of the **Windows Terminal** application. 
+1. On the lab computer, start **Command Prompt**.
 
 1. Run the following command to run test the **POST** REST API call against `http://localhost:7071/api/echo` with HTTP request body set to a numeric value of **3**:
 
@@ -245,7 +245,8 @@ In this exercise, you created a local project that you'll use for Azure Function
    curl -X POST -i http://localhost:7071/api/echo -d "{"msg": "Successful"}"
    ```
 
-1. Close all currently running instances of the **Windows Terminal** application.
+1. Close all currently running instances of the **Terminal** application, and the **Command Prompt** application.
+
 
 #### Review
 
@@ -261,18 +262,18 @@ In this exercise, you created a basic function that echoes the content sent thro
 
 1. In the File Explorer, Open the **Recurring.cs** file.
 1. Read thru the code and comments. Make note of any questions you have about the code.
-1. In line 17, notice the `"0 */2 * * * *"`` to set the recurring frequency interval to 2 minutes.
+1. In line 17, notice the `"0 */1 * * * *"`` to set the recurring frequency interval to 2 minute.
 
 #### Task 3: Observe function runs
 
-1. On the taskbar, select the **Windows Terminal** icon.
-1. Run the following command to change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\02\\Starter\\func** directory:
+1. On the taskbar, select the **Terminal** icon.
+1. Run the following command to change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\02\\Solution\\func** directory:
 
     ```powershell
-    cd F:\Allfiles\Labs\02\Starter\func
+    cd F:\Allfiles\Labs\02\Solution\func
     ```
 
-1. From the command prompt, run the following command to run the function app project:
+1. Within the terminal, run the following command to run the function app project:
 
     ```powershell
     func start --build
@@ -280,15 +281,15 @@ In this exercise, you created a basic function that echoes the content sent thro
 
     > **Note**: You can review the documentation to [start the function app project locally][azure-functions-core-tools-start-function] using the **Azure Functions Core Tools**.
     
-1. Observe the function run that occurs about every two minutes. Each function run should render a simple message to the log.
-1. Close the currently running **Windows Terminal** application.
+1. Observe the function run that occurs about every one minute. Each function run should render a simple message to the log.
+1. Close the currently running **Terminal** application.
 1. Close the Visual Studio Code window.
 
 #### Review
 
 In this exercise, you created a function that runs automatically based on a fixed schedule.
 
-### Exercise 5: Create a function that integrates with other services (Low-Code Path)
+### Exercise 5: Create a function that integrates with other services (Standard Path)
 
 #### Task 1: Upload sample content to Azure Blob Storage
 
@@ -302,7 +303,6 @@ In this exercise, you created a function that runs automatically based on a fixe
     | Setting | Action |
     | -- | -- |
     | **Name** text box  | Enter **content** |
-    | **Public access level** drop-down list  | Select **Private (no anonymous access)** |
 
 1. Return to the **Containers** section, and then select the recently created **content** container.
 1. On the **Container** blade, select **Upload**.
@@ -320,20 +320,20 @@ In this exercise, you created a function that runs automatically based on a fixe
 
 1. In the Low-Code verions of the lab, nothing is needed here. Please proceed.
 
-#### Task 3: Write HTTP-triggered function code with blob input
-
-1. In the File Explorer, Open the **GetSettingInfo.cs** file.
-1. Read thru the code and comments. Make note of any questions you have about the code.
-
-#### Task 4: Register Azure Storage Blob extensions
+#### Task 3: Register Azure Storage Blob extensions
 
 1. In the Low-Code verions of the lab, the Azure Blob extensions are already registered. Without this, the integration would fail.
 1. Open the **func.csproj** file and note the **Microsoft.Azure.WebJobs.Extensions.Storage** entry.  
 
+#### Task 4: Write HTTP-triggered function code with blob input
+
+1. In the File Explorer, Open the **GetSettingInfo.cs** file.
+1. Read thru the code and comments. Make note of any questions you have about the code.
+
 #### Task 5: Test the function by using curl
 
-1. On the taskbar, select the **Windows Terminal** icon.
-1. From the command prompt, run the following command to run the function app project:
+1. On the taskbar, select the **Terminal** icon.
+1. Within the terminal, run the following command to run the function app project:
 
     ```powershell
     func start --build
@@ -341,8 +341,9 @@ In this exercise, you created a function that runs automatically based on a fixe
 
     > **Note**: You can review the documentation to [start the function app project locally][azure-functions-core-tools-start-function] using the **Azure Functions Core Tools**.
 
-1. On the taskbar, select the **Windows Terminal** icon again to open a new instance of the **Windows Terminal** application.
-1. From the command prompt, run the following command to test the **POST** REST API call against `http://localhost:7071/api/echo` with HTTP request body set to a numeric value of **3**:
+1. On the lab computer, start **Command Prompt**.
+
+1. Run the following command to test the **GET** REST API call against `http://localhost:7071/api/GetSettingInfo`:
 
    ```powershell
    curl -X GET -i http://localhost:7071/api/GetSettingInfo
@@ -364,18 +365,18 @@ In this exercise, you created a function that runs automatically based on a fixe
     }
     ```
 
-1. Close all currently running instances of the **Windows Terminal** application.
+1. Close all currently running instances of the **Terminal** application, and the **Command Pormpt** application.
 
 #### Review
 
-In this exercise, you created a function that returns the content of a JSON file in Storage.
+In this exercise, you created a function that returns the content of a JSON file from a storage account.
 
-### Exercise 6: Deploy a local function project to an Azure Functions app (Low-Code Path)
+### Exercise 6: Deploy a local function project to an Azure Functions app (Standard Path)
 
 #### Task 1: Deploy using the Azure Functions Core Tools
 
-1. On the taskbar, select the **Windows Terminal** icon.
-1. Run the following command to change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\02\\Starter\\func** directory:
+1. On the taskbar, select the **Terminal** icon.
+1. Run the following command to change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\02\\Solution\\func** directory:
 
     ```powershell
     cd F:\Allfiles\Labs\02\Solution\func
@@ -388,17 +389,17 @@ In this exercise, you created a function that returns the content of a JSON file
     ```
 
 1. In the **Microsoft Edge** browser window, enter the name and password of the Microsoft or Azure Active Directory account you are using in this lab, and then select **Sign in**.
-1. Return to the currently open **Windows Terminal** window. Wait for the sign-in process to finish.
-1. From the command prompt, run the following command to publish the function app project (replace the `<function-app-name>` placeholder with the name of the function app you created earlier in this lab):
+1. Return to the currently open **Terminal** window. Wait for the sign-in process to finish.
+1. Within the terminal, run the following command to publish the function app project (replace the `<function-app-name>` placeholder with the name of the function app you created earlier in this lab):
 
     ```powershell
-    func azure functionapp publish <function-app-name>
+    func azure functionapp publish <function-app-name> --dotnet-version 8.0
     ```
 
     > **Note**: For example, if your **Function App name** is **funclogicstudent**, your command would be ``func azure functionapp publish funclogicstudent``. You can review the documentation to [publish the local function app project][azure-functions-core-tools-publish-azure] using the **Azure Functions Core Tools**.
 
 1. Wait for the deployment to finalize before you move forward with the lab.
-1. Close the currently running **Windows Terminal** application.
+1. Close the currently running **Terminal** application.
 
 #### Task 2: Validate deployment
 

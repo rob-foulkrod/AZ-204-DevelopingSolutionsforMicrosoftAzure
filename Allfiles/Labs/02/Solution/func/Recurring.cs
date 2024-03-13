@@ -17,10 +17,10 @@ namespace func
         [Function("Recurring")]
         public void Run(
             // This attribute indicates that this function is triggered by a timer.
-            // The function is triggered every 2 minutes 
-            // (as indicated by the cron expression "0 */2 * * * *") 
+            // The function is triggered every 1 minute
+            // (as indicated by the cron expression "0 */1 * * * *") 
             // (seconds, minutes, hours, days, months, days of the week).
-            [TimerTrigger("0 */2 * * * *")] MyInfo myTimer)
+            [TimerTrigger("0 */1 * * * *")] MyInfo myTimer)
         {
             // Log an informational message indicating that the function has been triggered.
             // Include the current date and time in the log message.
