@@ -1,3 +1,7 @@
+# Lab 02: Implement task processing logic by using Azure Functions (Low Code)
+
+## Instructions
+
 ### Exercise 2: Configure a local Azure Functions project (Low-Code Path)
 
 #### Task 1: Open a Function project

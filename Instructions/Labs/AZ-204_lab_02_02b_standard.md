@@ -1,3 +1,7 @@
+# Lab 02: Implement task processing logic by using Azure Functions (Standard)
+
+## Instructions
+
 ### Exercise 2: Configure a local Azure Functions project
 
 #### Task 1: Initialize a function project (Standard Path)
