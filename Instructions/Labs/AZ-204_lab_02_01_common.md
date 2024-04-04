@@ -4,7 +4,7 @@ lab:
     az204Module: 'Learning Path 02: Implement Azure Functions'
 ---
 
-# Lab 02: Implement task processing logic by using Azure Functions (Standard Path)
+# Lab 02: Implement task processing logic by using Azure Functions
 
 ## Microsoft Azure user interface
 
