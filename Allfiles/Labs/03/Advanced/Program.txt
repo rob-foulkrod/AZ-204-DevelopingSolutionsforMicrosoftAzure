@@ -1,0 +1,112 @@
+using Azure.Storage;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using System;
+using System.Threading.Tasks;
+public class Program
+{
+    //Update the blobServiceEndpoint value that you recorded previously in this lab.        
+    private const string blobServiceEndpoint = "";
+
+    //Update the storageAccountName value that you recorded previously in this lab.
+    private const string storageAccountName = "";
+
+    //Update the storageAccountKey value that you recorded previously in this lab.
+    private const string storageAccountKey = "";
+
+
+    //The following code to create a new asynchronous Main method
+    public static async Task Main(string[] args)
+    {
+        //Add line of code to create a new instance of the StorageSharedKeyCredential class by using the storageAccountName and storageAccountKey constants as constructor parameters
+
+        //Add line of code to create a new instance of the BlobServiceClient class by using the blobServiceEndpoint constant and the accountCredentials variable as constructor parameters
+
+        //Add line of code to invoke the GetAccountInfoAsync method of the BlobServiceClient class to retrieve account metadata from the service
+
+        //Render a welcome message
+
+        //Render the storage account's name
+
+        //Render the type of storage account
+
+        //Render the currently selected stock keeping unit (SKU) for the storage account
+
+        //Call EnumerateContainersAsync method asynchronously (the method is implemented below)
+
+        string existingContainerName = "raster-graphics";
+        //Call EnumerateBlobsAsync method asynchronously (the method is implelented below) 
+
+        string newContainerName = "vector-graphics";
+        //Call GetContainerAsync method asynchronously (the method is implelented below)
+
+        string uploadedBlobName = "graph.svg";
+        //Call GetBlobAsync method asynchronously (the method is implelented below)
+
+        //Render Blob Url
+
+    }
+
+    //Enumerate containers in the storage account
+    private static async Task EnumerateContainersAsync(BlobServiceClient client)
+    {
+        /*Create an asynchronous foreach loop that iterates over the results of 
+            an invocation of the GetBlobContainersAsync method of the BlobServiceClient class. */
+        //{   
+        //  Print the name of each container
+        //}
+
+    }
+
+    //Enumerate blobs in specified container
+    private static async Task EnumerateBlobsAsync(BlobServiceClient client, string containerName)
+    {
+        /* Get a new instance of the BlobContainerClient class by using the
+           GetBlobContainerClient method of the BlobServiceClient class, 
+           passing in the containerName parameter */
+
+        /* Render the name of the container that will be enumerated */
+
+        /* Create an asynchronous foreach loop that iterates over the results of
+            an invocation of the GetBlobsAsync method of the BlobContainerClient class */
+        //{     
+        //  Print the name of each blob    
+        //}
+    }
+
+    //Return  the container
+    private static async Task<BlobContainerClient> GetContainerAsync(BlobServiceClient client, string containerName)
+    {
+        /* Get a new instance of the BlobContainerClient class by using the
+            GetBlobContainerClient method of the BlobServiceClient class,
+            passing in the containerName parameter */
+
+        /* Invoke the CreateIfNotExistsAsync method of the BlobContainerClient class */
+
+        /* Render the name of the container that was potentially created */
+
+        /* Return the container as the result of the GetContainerAsync */
+        return null; // delete this line once implemented
+    }
+
+    //Return the specified Blob
+    private static async Task<BlobClient> GetBlobAsync(BlobContainerClient client, string blobName)
+    {
+        //Create a new instance of the BlobClient class using the GetBlobClient method of the BlobContainerClient class.
+        //The blobName parameter specifies the name of the blob to retrieve.  
+
+        //check whether the specified blob exists using the ExistsAsync method on the blob 
+
+        // if (!exists)
+        // {
+        //     If the blob does not exist, print a message to the console: "Blob {blob.Name} not found!".
+
+        // }
+        // else
+        //     If the blob exists, print a message with the blob’s URI: "Blob Found, URI:\t{blob.Uri}".
+
+        //return BlobClient;
+        //}
+        return null; // delete this line once implemented
+    }
+}
