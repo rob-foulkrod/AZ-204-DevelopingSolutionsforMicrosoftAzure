@@ -8,7 +8,7 @@ lab:
 
 ## Instructions
 
-### Exercise 3: Publish Event Grid events from .NET
+### Exercise 3: Publish Event Grid events from .NET (Advanced Path)
 
 #### Task 1: Create a .NET project
 
@@ -33,7 +33,6 @@ lab:
     ```powershell
     dotnet add package Azure.Messaging.EventGrid --version 4.11.0
     ```
-    
 
     > **Note**: The **dotnet add package** command will add the **Microsoft.Azure.EventGrid** package from NuGet. For more information, go to [Azure.Messaging.EventGrid](https://www.nuget.org/packages/Azure.Messaging.EventGrid/4.11.0).
 
@@ -46,95 +45,43 @@ lab:
 
 1. Select **Kill Terminal** or the **Recycle Bin** icon to close the currently open terminal and any associated processes.
 
-#### Task 2: Modify the Program class to connect to Event Grid
+#### Task 2: Replace Program class with skeleton code.
 
-1. On the **Explorer** pane of the **Visual Studio Code** window, open the **Program.cs** file.
+1. On the **File** menu, select **Open File**.
 
-1. On the code editor tab for the **Program.cs** file, delete all the code in the existing file.
-  
-1. Add the following of code:
+1. Browse to **Allfiles (F):\\Allfiles\\Labs\\09\\Advanced\\Program.txt** and click open.
 
-    ```csharp
-    using Azure;
-    using Azure.Messaging.EventGrid;
-    using System;
-    using System.Threading.Tasks;    
-    public class Program
-    {
-        private const string topicEndpoint = "<topic-endpoint>";
-        /* Update the topicEndpoint string constant by setting its value to the Topic
-           Endpoint of the Event Grid topic that you recorded previously in this lab. */
-        private const string topicKey = "<topic-key>";
-        /* Update the topicKey string constant by setting its value to the Key of the Event Grid topic that you recorded previously in this lab. */     
-        public static async Task Main(string[] args)
-        {
-            //Add Main code here
-        }
-    }
-    ```
+1. Copy the entire contents of **Program.txt** and replace Program the content of **Program.cs**.
+
 1. In line 7, replace the `<topic-endpoint>` placeholder with the value of the Event Grid topic endpoint you recorded earlier in this lab.
 
 1. In line 10, replace the `<topic-key>` placeholder with the value of the Event Grid topic access key you recorded earlier in this lab.
 
 #### Task 3: Publish new events
 
-1. Replace the **Main** method of **Program.cs** file with the following code:
-   
-    ```csharp
-    public static async Task Main(string[] args)
-    {   
-        /* To create a new variable named "endpoint" of type "Uri", 
-           using the "topicEndpoint" string constant as a constructor parameter */
-        Uri endpoint = new Uri(topicEndpoint);
+1. Write the appropriate C# code to send 2 messages to the Event grid created earlier.
 
-        /* To create a new variable named "credential" of type "AzureKeyCredential",
-           use the "topicKey" string constant as a constructor parameter. */
-        AzureKeyCredential credential = new AzureKeyCredential(topicKey);
+    > **Note**: Tools such as GitHub Copilot and Copilot with Bing can be used to help generate code
 
-        /* To create a new variable named "client" of type "EventGridPublisherClient", 
-           using the "endpoint" and "credential" variables as constructor parameters */
-        EventGridPublisherClient client = new EventGridPublisherClient(endpoint, credential);
+1. Save the **Program.cs** file.
 
-        /* To create a new variable named "firstEvent" of type "EventGridEvent",
-           and populate that variable with sample data */        
-        EventGridEvent firstEvent = new EventGridEvent(
-            subject: $"New Employee: Alba Sutton",
-            eventType: "Employees.Registration.New",
-            dataVersion: "1.0",
-            data: new
-            {
-                FullName = "Alba Sutton",
-                Address = "4567 Pine Avenue, Edison, WA 97202"
-            }
-        );
+1. In the **Visual Studio Code** window, on the Menu Bar, select **Terminal** and then select **New Terminal**.
 
-        /* To create a new variable named "secondEvent" of type "EventGridEvent",
-           and populate that variable with sample data */
-        EventGridEvent secondEvent = new EventGridEvent(
-            subject: $"New Employee: Alexandre Doyon",
-            eventType: "Employees.Registration.New",
-            dataVersion: "1.0",
-            data: new
-            {
-                FullName = "Alexandre Doyon",
-                Address = "456 College Street, Bow, WA 98107"
-            }
-        );
+1. Run the following command to run the .NET web application:
 
-        /* To asynchronously invoke the "EventGridPublisherClient.SendEventAsync"
-           method using the "firstEvent" variable as a parameter */
-        await client.SendEventAsync(firstEvent);
-        Console.WriteLine("First event published");
-
-        /* To asynchronously invoke the "EventGridPublisherClient.SendEventAsync"
-           method using the "secondEvent" variable as a parameter */
-        await client.SendEventAsync(secondEvent);
-        Console.WriteLine("Second event published");
-    }
+    ```powershell
+    dotnet run
     ```
+
+    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\09\\Solution\\EventPublisher** folder.
+
+1. Observe the success message output from the currently running console application.
+
+1. Select **Kill Terminal** or the **Recycle Bin** icon to close the currently open terminal and any associated processes.
+
     > **Note**: To know more about **[AzureKeyCredential](https://docs.microsoft.com/dotnet/api/azure.azurekeycredential)**
   
-    > **Note**: To know more about Event Grid, click the following links: 
+    > **Note**: To know more about Event Grid, click the following links:
     - **[EventGridPublisherClient](https://learn.microsoft.com/dotnet/api/azure.messaging.eventgrid.eventgridpublisherclient)**
     
     - **[EventGridEvent](https://learn.microsoft.com/dotnet/api/azure.messaging.eventgrid.eventgridevent)**
